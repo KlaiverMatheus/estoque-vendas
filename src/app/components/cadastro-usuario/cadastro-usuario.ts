@@ -4,11 +4,12 @@ import { Router } from '@angular/router';
 import { cadastroUsuario } from "../../services/cadastro-usuario";
 import { CommonModule } from '@angular/common'; // importante para liberar recursos de controle de fluxo
 import { GerenciadorUsuario } from '../gerenciador-usuario/gerenciador-usuario'; // atualiza usuario
+import { NgxMaskDirective } from 'ngx-mask'; // para deixar o telefone melhor
 
 @Component({
   selector: 'app-cadastro-usuario',
   standalone: true,
-  imports: [FormsModule, CommonModule, GerenciadorUsuario],
+  imports: [FormsModule, CommonModule, GerenciadorUsuario, NgxMaskDirective],
   templateUrl: './cadastro-usuario.html',
   styleUrl: './cadastro-usuario.css',
 })

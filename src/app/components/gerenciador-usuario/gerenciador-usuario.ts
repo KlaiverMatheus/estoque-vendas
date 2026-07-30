@@ -4,11 +4,12 @@ import { AuthGerenciadorUsuario } from '../../services/auth-gerenciador-usuario'
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common'; // Importar CommonModule para usar o *ngFor na tabela
 import { UserSelectDTO } from '../../models/user-select.dto'; // interface
+import { NgxMaskDirective } from 'ngx-mask'; // para deixar o telefone melhor
 
 @Component({
   selector: 'app-gerenciador-usuario',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, NgxMaskDirective],
   templateUrl: './gerenciador-usuario.html',
   styleUrl: './gerenciador-usuario.css',
 })
@@ -27,6 +28,17 @@ export class GerenciadorUsuario implements OnInit{
 
   constructor(private AuthGerenciadorUsuarioService: AuthGerenciadorUsuario, private router: Router, private cdr: ChangeDetectorRef) {}
 
+  // Verifica se pode salvar: precisa ter um usuário selecionado
+  // e os campos obrigatórios preenchidos
+  get podeSalvar(): boolean {
+    return (
+      !!this.idSelecionado &&
+      this.nomeDigitado.trim().length > 0 &&
+      this.emailDigitado.trim().length > 0 &&
+      this.cargoDigitado.trim().length > 0
+    );
+  }
+
   // metodo para carrregar sempre que a tela atulizar
   ngOnInit(): void {
     this.carregarListaUsuarios();
@@ -34,7 +46,7 @@ export class GerenciadorUsuario implements OnInit{
 
   // Busca a lista de usuarios no serviço
   carregarListaUsuarios(): void {
-  //   // USUARIO TESTE LOCAL (Apagar quando o Java estiver rodando):
+    // USUARIO TESTE LOCAL (Apagar quando o Java estiver rodando):
   // this.listaUsuarios = [
   //   { 
   //     userId: '1', 
@@ -53,6 +65,7 @@ export class GerenciadorUsuario implements OnInit{
   //     status: 'Ativo' 
   //   }
   // ];
+  // final do teste ----------------------------------------
 
     // Quando ligar o Java, use esta linha:
     this.AuthGerenciadorUsuarioService.listarUsuarios().subscribe({
@@ -116,6 +129,10 @@ export class GerenciadorUsuario implements OnInit{
   executarGerenciadorUsuario(): void {
     if (this.carregando) {
       return;
+    }
+    if (!this.podeSalvar) {
+    alert('Selecione um usuário na lista e preencha os campos obrigatórios antes de salvar.');
+    return;
     }
     this.carregando = true;
     console.log('Tentando atualizar usuario...')

@@ -1,17 +1,15 @@
-import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
+import 'zone.js';
+import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
-import { provideEnvironmentInitializer } from '@angular/core';
 import { routes } from './app.routes';
-
-import { Auth } from './services/auth';
 import { provideHttpClient } from '@angular/common/http';
+import { provideEnvironmentNgxMask } from 'ngx-mask'; // para mudar o numero de telefone
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideBrowserGlobalErrorListeners(),
+    provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
-
-    // isso permite as requisições http post e get
-    provideHttpClient()
+    provideHttpClient(),
+    provideEnvironmentNgxMask()
   ]
 };

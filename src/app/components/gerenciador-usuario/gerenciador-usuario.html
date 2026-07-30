@@ -18,7 +18,7 @@
 
       <div class="form-group">
         <label>Telefone:</label>
-        <input type="text" [(ngModel)]="telefoneDigitado" name="telefone" placeholder="Telefone">
+        <input type="text" [(ngModel)]="telefoneDigitado" name="telefone" placeholder="Telefone" mask="(00) 00000-0000">
       </div>
 
       <div class="form-group">
@@ -40,7 +40,7 @@
         <input type="password" [(ngModel)]="senhaDigitada" name="senha" placeholder="Digite uma nova senha">
       </div>
 
-      <button type="submit" [disabled]="carregando">
+      <button type="submit" [disabled]="carregando || !podeSalvar">
         {{ carregando ? 'Atualizando...' : 'Salvar Alterações' }}
       </button>
     </form>
@@ -54,6 +54,7 @@
         <tr>
           <th>Nome</th>
           <th>E-mail</th>
+          <th>Telefone</th>
           <th>Cargo</th>
           <th>Status</th>
           <th class="coluna-acao">Ação</th>
@@ -66,6 +67,7 @@
                 [class.linha-selecionada]="user.userId === idSelecionado">
             <td>{{ user.nome }}</td>
             <td>{{ user.email }}</td>
+            <td>{{ user.telefone }}</td>
             <td>{{ user.cargo }}</td>
             <td>{{ user.status }}</td>
             <td class="celila-acao">
