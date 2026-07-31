@@ -1,0 +1,168 @@
+/* Título principal */
+h2 {
+    text-align: center;
+    color: black;
+    margin-bottom: 15px;
+    font-size: 26px;
+}
+
+/* Título da tabela */
+h3 {
+    text-align: center;
+    color: black;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    border-top: 2px solid #e5e5e5;
+    font-size: 20px;
+}
+
+/* Texto explicativo */
+p {
+    text-align: center;
+    color: #555;
+    margin-bottom: 30px;
+    font-size: 16px;
+}
+
+/* Organização do formulário */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 18px;
+}
+
+/* Labels */
+.form-group label {
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+    font-size: 16px;
+}
+
+/* Campos de entrada */
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    transition: border-color .3s, box-shadow .3s;
+}
+
+/* Campo selecionado */
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #8BCF8B;
+    box-shadow: 0 0 5px rgba(139, 207, 139, 0.6);
+}
+
+/* Placeholder */
+.form-group input::placeholder {
+    color: #999;
+}
+
+/* Botão Salvar */
+button {
+    width: 100%;
+    margin-top: 25px;
+    padding: 14px;
+    background-color: #8BCF8B;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color .3s, transform .2s;
+}
+
+/* Hover do botão */
+button:hover {
+    background-color: #72c172;
+}
+
+/* Clique do botão */
+button:active {
+    transform: scale(0.98);
+}
+
+/* Botão desabilitado */
+button:disabled {
+    background-color: #c2e7c2;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Tabela */
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+/* Cabeçalho */
+thead {
+    background-color: #8BCF8B;
+    color: white;
+}
+
+/* Células */
+th,
+td {
+    padding: 14px;
+    border: 1px solid #ddd;
+    text-align: center;
+    font-size: 16px;
+}
+
+/* Linhas da tabela */
+tbody tr {
+    cursor: pointer;
+    transition: background-color .2s;
+}
+
+/* Hover das linhas */
+tbody tr:hover {
+    background-color: #f5fff5;
+}
+
+/* Botão Editar */
+.btn-selecionar {
+    width: auto;
+    margin: 0;
+    padding: 8px 18px;
+    font-size: 14px;
+}
+
+/* Centralização e alinhamento da coluna de ação */
+.coluna-acao,
+.celula-acao {
+  text-align: center;
+}
+
+/* Botao simples de inativar */
+.btn-inativar {
+  background: transparent;
+  border: 1px solid #ef4444;
+  color: #ef4444;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin: 0px;
+}
+
+.btn-inativar:hover {
+  background-color: #ef4444;
+  color: white;
+}
+
+/* Destaque visual da linha selecionada */
+.linha-selecionada {
+  background-color: #e2f5e2 !important;
+}

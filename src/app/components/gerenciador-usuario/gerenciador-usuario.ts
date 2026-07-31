@@ -139,7 +139,8 @@ export class GerenciadorUsuario implements OnInit{
     
     const usuarioAtual = localStorage.getItem('usuarioLogado') || 'Sistema'; 
 
-    this.AuthGerenciadorUsuarioService.atualizarUsuario(this.idSelecionado, this.nomeDigitado, this.senhaDigitada, this.emailDigitado, this.telefoneDigitado, this.cargoDigitado, usuarioAtual).subscribe({
+    this.AuthGerenciadorUsuarioService.atualizarUsuario(this.idSelecionado, this.nomeDigitado, this.senhaDigitada, this.emailDigitado, this.telefoneDigitado, 
+    this.cargoDigitado, usuarioAtual).subscribe({
       next: (resposta) => {
         console.log('Atualização realizada com sucesso', resposta)
         setTimeout(() => {
