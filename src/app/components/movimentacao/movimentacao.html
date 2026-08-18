@@ -1,0 +1,107 @@
+<div class="movimentacao-container">
+  <div>
+    <h2>Histórico de Movimentações</h2>
+    <p>Utilize os filtros abaixo para consultar as ações registradas no sistema</p>
+
+    <form (submit)="$event.preventDefault()">
+
+      <div class="form-group">
+        <label>Filtrar por:</label>
+        <select 
+          name="tipoFiltro" 
+          id="tipoFiltro" 
+          [(ngModel)]="tipoFiltro" 
+          (change)="valorFiltroTexto = ''; dataFiltro = ''">
+          <option value="TODOS">Todos os Registros</option>
+          <option value="DATA">Data</option>
+          <option value="ACAO">Tipo de Ação</option>
+          <option value="USUARIO">Usuário Afetado</option>
+          <option value="RESPONSAVEL">Responsável</option>
+        </select>
+      </div>
+
+      <!-- Filtro condicional: Data -->
+      <div class="form-group" *ngIf="tipoFiltro === 'DATA'">
+        <label>Selecione a Data:</label>
+        <input type="date" [(ngModel)]="dataFiltro" name="dataFiltro">
+      </div>
+
+      <!-- Filtro condicional: Ação -->
+      <div class="form-group" *ngIf="tipoFiltro === 'ACAO'">
+        <label>Selecione a Ação:</label>
+        <select name="valorFiltroAcao" [(ngModel)]="valorFiltroTexto">
+          <option value="" disabled>Selecione uma opção</option>
+          <option value="CRIACAO">Criação</option>
+          <option value="ATUALIZACAO">Atualização</option>
+          <option value="EXCLUSAO">Exclusão</option>
+        </select>
+      </div>
+
+      <!-- Filtro condicional: Texto livre -->
+      <div class="form-group" *ngIf="tipoFiltro === 'USUARIO' || tipoFiltro === 'RESPONSAVEL'">
+        <label>Termo de Busca:</label>
+        <input 
+          type="text" 
+          [(ngModel)]="valorFiltroTexto" 
+          name="valorFiltroTexto" 
+          [placeholder]="tipoFiltro === 'USUARIO' ? 'Nome do usuário' : 'Nome do responsável'">
+      </div>
+
+      <!-- Botão Buscar -->
+      <button 
+        type="button" 
+        (click)="buscarMovimentacoes()">
+        Buscar
+      </button>
+
+      <!-- Botão Limpar Filtro -->
+      <button 
+        type="button" 
+        (click)="limparFiltro()" 
+        *ngIf="tipoFiltro !== 'TODOS'">
+        Limpar Filtros
+      </button>
+    </form>
+  </div>
+
+  <div>
+    <h3>Movimentações Registradas</h3>
+
+    <p *ngIf="carregando">Carregando movimentações...</p>
+
+    <!-- Estado inicial: ainda não clicou em Buscar -->
+    <p *ngIf="!carregando && !buscaRealizada">
+      Selecione um filtro (opcional) e clique em Buscar para consultar o histórico.
+    </p>
+
+    <table *ngIf="!carregando && buscaRealizada && movimentacoesExibidas.length > 0">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Usuário Afetado</th>
+          <th>Cargo</th>
+          <th>Ação</th>
+          <th>Campo Afetado</th>
+          <th>Data / Hora</th>
+          <th>Responsável</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let mov of movimentacoesExibidas">
+          <td>{{ mov.movId }}</td>
+          <td>{{ mov.nomeUser }}</td>
+          <td>{{ mov.userCargo }}</td>
+          <td>{{ mov.acaoMov }}</td>
+          <td>{{ mov.campoAfetado }}</td>
+          <td>{{ mov.dataMov }}</td>
+          <td>{{ mov.responsavel }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Buscou, mas não encontrou nada -->
+    <p *ngIf="!carregando && buscaRealizada && movimentacoesExibidas.length === 0">
+      Nenhuma movimentação encontrada para o filtro informado.
+    </p>
+  </div>
+</div>

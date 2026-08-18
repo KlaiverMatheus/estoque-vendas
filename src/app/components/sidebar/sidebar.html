@@ -25,10 +25,18 @@
         </a>
       </li>
       <!-- Adicione novos menus aqui futuramente (Ex: Produtos, Vendas) -->
-       <a routerLink="/cadastro-produto" routerLinkActive="link-ativo" class="nav-item">
-        <span class="icone">🏷️</span>
-        <span class="texto-link" *ngIf="!estaRecolhida">Cadastro de Produtos</span>
-       </a>
+       <li>
+        <a routerLink="/cadastro-produto" routerLinkActive="link-ativo" class="nav-item">
+          <span class="icone">🏷️</span>
+          <span class="texto-link" *ngIf="!estaRecolhida">Cadastro de Produtos</span>
+        </a>
+       </li>
+       <li>
+        <a routerLink="/movimentacao" routerLinkActive="link-ativo" class="nav-item">
+          <span class="icone">​📚​</span>
+          <span class="texto-link" *ngIf="!estaRecolhida">Movimentação</span>
+        </a>
+       </li>
     </ul>
   </nav>
 
