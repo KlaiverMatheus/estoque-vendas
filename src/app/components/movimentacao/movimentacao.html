@@ -6,45 +6,36 @@
     <form (submit)="$event.preventDefault()">
 
       <div class="form-group">
-        <label>Filtrar por:</label>
-        <select 
-          name="tipoFiltro" 
-          id="tipoFiltro" 
-          [(ngModel)]="tipoFiltro" 
-          (change)="valorFiltroTexto = ''; dataFiltro = ''">
-          <option value="TODOS">Todos os Registros</option>
-          <option value="DATA">Data</option>
-          <option value="ACAO">Tipo de Ação</option>
-          <option value="USUARIO">Usuário Afetado</option>
-          <option value="RESPONSAVEL">Responsável</option>
-        </select>
+        <label>Data:</label>
+        <input type="date" [(ngModel)]="filtroData" name="filtroData">
       </div>
 
-      <!-- Filtro condicional: Data -->
-      <div class="form-group" *ngIf="tipoFiltro === 'DATA'">
-        <label>Selecione a Data:</label>
-        <input type="date" [(ngModel)]="dataFiltro" name="dataFiltro">
-      </div>
-
-      <!-- Filtro condicional: Ação -->
-      <div class="form-group" *ngIf="tipoFiltro === 'ACAO'">
-        <label>Selecione a Ação:</label>
-        <select name="valorFiltroAcao" [(ngModel)]="valorFiltroTexto">
-          <option value="" disabled>Selecione uma opção</option>
+      <div class="form-group">
+        <label>Tipo de Ação:</label>
+        <select name="filtroAcao" [(ngModel)]="filtroAcao">
+          <option value="">Todas as ações</option>
           <option value="CRIACAO">Criação</option>
           <option value="ATUALIZACAO">Atualização</option>
           <option value="EXCLUSAO">Exclusão</option>
         </select>
       </div>
 
-      <!-- Filtro condicional: Texto livre -->
-      <div class="form-group" *ngIf="tipoFiltro === 'USUARIO' || tipoFiltro === 'RESPONSAVEL'">
-        <label>Termo de Busca:</label>
+      <div class="form-group">
+        <label>Usuário Afetado:</label>
         <input 
           type="text" 
-          [(ngModel)]="valorFiltroTexto" 
-          name="valorFiltroTexto" 
-          [placeholder]="tipoFiltro === 'USUARIO' ? 'Nome do usuário' : 'Nome do responsável'">
+          [(ngModel)]="filtroUsuario" 
+          name="filtroUsuario" 
+          placeholder="Nome do usuário">
+      </div>
+
+      <div class="form-group">
+        <label>Responsável:</label>
+        <input 
+          type="text" 
+          [(ngModel)]="filtroResponsavel" 
+          name="filtroResponsavel" 
+          placeholder="Nome do responsável">
       </div>
 
       <!-- Botão Buscar -->
@@ -58,7 +49,7 @@
       <button 
         type="button" 
         (click)="limparFiltro()" 
-        *ngIf="tipoFiltro !== 'TODOS'">
+        *ngIf="filtroData || filtroAcao || filtroUsuario || filtroResponsavel">
         Limpar Filtros
       </button>
     </form>
