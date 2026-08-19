@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { CadastroUsuario } from './components/cadastro-usuario/cadastro-usuario';
 import { CadastroProduto } from './components/cadastro-produto/cadastro-produto';
 import { Movimentacao } from './components/movimentacao/movimentacao';
+import { FormaPagamento } from './components/forma-pagamento/forma-pagamento';
 
 //aqui criamos as rotas das paginas
 export const routes: Routes = [
@@ -13,6 +14,7 @@ export const routes: Routes = [
     {path: 'cadastro-usuario', component: CadastroUsuario},
     {path: 'cadastro-produto', component: CadastroProduto},
     {path: 'movimentacao', component: Movimentacao},
+    {path: 'forma-pagamento', component: FormaPagamento},
     // rota para caso o usuario digite algo que nao existe, ele cai no login de novo
     {path: '**', redirectTo: ''}
 ];

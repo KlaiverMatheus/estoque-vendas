@@ -5,8 +5,8 @@
     align-items: flex-start;
     min-height: 100vh;
     background-color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    padding: 40px 20px;
+    font-family: inherit;
+    padding: 1.5rem 1rem;
     box-sizing: border-box;
 }
 
@@ -15,25 +15,27 @@
     width: 100%;
     max-width: 850px;
     background: white;
-    border-radius: 10px;
-    padding: 50px;
-    box-shadow: 0 4px 12px rgba(0,0,0,.15);
+    border-radius: 8px;
+    padding: 1.75rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
 }
 
 /* Título */
 .cadastro-produto-container h2 {
     text-align: center;
-    margin-bottom: 15px;
-    color: black;
-    font-size: 26px;
+    margin-bottom: 0.25rem;
+    color: #1e293b;
+    font-size: 1.5rem;
+    font-weight: 700;
 }
 
 /* Texto */
 .cadastro-produto-container p {
     text-align: center;
-    margin-bottom: 30px;
-    color: #555;
-    font-size: 16px;
+    margin-bottom: 1.25rem;
+    color: #64748b;
+    font-size: 0.95rem;
 }
 
 /* Formulário */
@@ -44,23 +46,23 @@
 
 /* Labels */
 .form-group label {
-    margin-top: 18px;
-    margin-bottom: 8px;
-    font-weight: bold;
-    color: #333;
-    font-size: 16px;
+    margin-top: 0.85rem;
+    margin-bottom: 0.35rem;
+    font-weight: 600;
+    color: #475569;
+    font-size: 0.85rem;
 }
 
 /* Inputs */
 .form-group input,
 .form-group select {
     width: 100%;
-    padding: 14px;
-    font-size: 16px;
-    border: 1px solid #ccc;
+    padding: 0.55rem 0.75rem;
+    font-size: 0.9rem;
+    border: 1px solid #cbd5e1;
     border-radius: 6px;
     box-sizing: border-box;
-    transition: .3s;
+    transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 /* Focus */
@@ -68,27 +70,27 @@
 .form-group select:focus {
     outline: none;
     border-color: #8BCF8B;
-    box-shadow: 0 0 5px rgba(139,207,139,.6);
+    box-shadow: 0 0 5px rgba(139, 207, 139, 0.6);
 }
 
 /* Placeholder */
 .form-group input::placeholder {
-    color: #999;
+    color: #94a3b8;
 }
 
 /* Botões */
 button {
     width: 100%;
-    margin-top: 30px;
-    padding: 14px;
+    margin-top: 1.25rem;
+    padding: 0.55rem 1.2rem;
     background: #8BCF8B;
     color: white;
     border: none;
     border-radius: 6px;
-    font-size: 17px;
-    font-weight: bold;
+    font-size: 0.9rem;
+    font-weight: 600;
     cursor: pointer;
-    transition: .2s;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
 button:hover {
@@ -96,7 +98,7 @@ button:hover {
 }
 
 button:active {
-    transform: scale(.98);
+    transform: scale(0.98);
 }
 
 button:disabled {
@@ -107,26 +109,27 @@ button:disabled {
 /* Abas */
 .navegacao-abas {
     display: flex;
-    gap: 12px;
-    margin-bottom: 30px;
-    border-bottom: 2px solid #ddd;
-    padding-bottom: 15px;
+    gap: 0.6rem;
+    margin-bottom: 1.25rem;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 0.75rem;
 }
 
 .btn-aba {
     flex: 1;
-    padding: 12px;
+    padding: 0.55rem 0.75rem;
     background: #f1f5f9;
-    border: 1px solid #ccc;
+    border: 1px solid #cbd5e1;
     border-radius: 6px;
-    color: #555;
-    font-weight: bold;
-    font-size: 16px;
-    transition: .2s;
+    color: #475569;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: 0.2s;
 }
 
 .btn-aba:hover {
-    background: #e8e8e8;
+    background: #e2f5e2;
+    border-color: #8BCF8B;
 }
 
 .aba-ativa {

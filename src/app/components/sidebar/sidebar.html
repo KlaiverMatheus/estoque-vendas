@@ -33,8 +33,14 @@
        </li>
        <li>
         <a routerLink="/movimentacao" routerLinkActive="link-ativo" class="nav-item">
-          <span class="icone">​📚​</span>
+          <span class="icone">📈</span> 
           <span class="texto-link" *ngIf="!estaRecolhida">Movimentação</span>
+        </a>
+       </li>
+       <li>
+        <a routerLink="/forma-pagamento" routerLinkActive="link-ativo" class="nav-item">
+          <span class="icone">💲</span>
+          <span class="texto-link" *ngIf="!estaRecolhida">Formas de Pagamento</span>
         </a>
        </li>
     </ul>

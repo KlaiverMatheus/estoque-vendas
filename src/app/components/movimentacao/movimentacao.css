@@ -1,180 +1,219 @@
-/* Card principal (mesmo padrão visual usado no Cadastro de Usuário) */
 .movimentacao-container {
-    width: 100%;
-    max-width: 1100px;
-    margin: 40px auto;
-    background: white;
-    border-radius: 10px;
-    padding: 50px;
-    box-shadow: 0 4px 12px rgba(0,0,0,.15);
-    box-sizing: border-box;
+  padding: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: inherit;
+  color: #1e293b;
 }
 
-/* Título principal */
-h2 {
-    text-align: center;
-    color: black;
-    margin-bottom: 15px;
-    font-size: 26px;
+.header-card {
+  margin-bottom: 1.5rem;
 }
 
-/* Título da tabela */
-h3 {
-    text-align: center;
-    color: black;
-    margin-top: 40px;
-    margin-bottom: 20px;
-    padding-top: 20px;
-    border-top: 2px solid #e5e5e5;
-    font-size: 20px;
+.header-card h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
 }
 
-/* Texto explicativo */
-p {
-    text-align: center;
-    color: #555;
-    margin-bottom: 30px;
-    font-size: 16px;
+.subtitulo {
+  color: #64748b;
+  font-size: 0.95rem;
+  margin: 0;
 }
 
-/* Organização do formulário */
+/* Cards */
+
+.filtros-card,
+.tabela-card {
+  background: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Formulário */
+
+.form-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
 .form-group {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  flex: 1;
+  min-width: 180px;
 }
 
-/* Labels */
 .form-group label {
-    margin-bottom: 8px;
-    font-weight: bold;
-    color: #333;
-    font-size: 16px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #475569;
 }
 
-/* Campos de entrada */
-.form-group input,
-.form-group select {
-    width: 100%;
-    padding: 14px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    box-sizing: border-box;
-    transition: border-color .3s, box-shadow .3s;
+.form-control {
+  padding: 0.55rem 0.75rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 /* Campo selecionado */
-.form-group input:focus,
-.form-group select:focus {
-    outline: none;
-    border-color: #8BCF8B;
-    box-shadow: 0 0 5px rgba(139, 207, 139, 0.6);
+
+.form-control:focus {
+  border-color: #8BCF8B;
+  box-shadow: 0 0 5px rgba(139, 207, 139, 0.6);
 }
 
-/* Placeholder */
-.form-group input::placeholder {
-    color: #999;
+/* Botões */
+
+.btn-group {
+  display: flex;
+  gap: 0.5rem;
 }
 
-/* Botão Salvar */
-button {
-    width: 100%;
-    margin-top: 25px;
-    padding: 14px;
-    background-color: #8BCF8B;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-size: 17px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color .3s, transform .2s;
-}
-
-/* Hover do botão */
-button:hover {
-    background-color: #72c172;
-}
-
-/* Clique do botão */
-button:active {
-    transform: scale(0.98);
-}
-
-/* Botão desabilitado */
-button:disabled {
-    background-color: #c2e7c2;
-    cursor: not-allowed;
-    transform: none;
-}
-
-/* Tabela */
-table {
-    width: 100%;
-    margin-top: 20px;
-    border-collapse: collapse;
-}
-
-/* Cabeçalho */
-thead {
-    background-color: #8BCF8B;
-    color: white;
-}
-
-/* Células */
-th,
-td {
-    padding: 14px;
-    border: 1px solid #ddd;
-    text-align: center;
-    font-size: 16px;
-}
-
-/* Linhas da tabela */
-tbody tr {
-    cursor: pointer;
-    transition: background-color .2s;
-}
-
-/* Hover das linhas */
-tbody tr:hover {
-    background-color: #f5fff5;
-}
-
-/* Botão Editar */
-.btn-selecionar {
-    width: auto;
-    margin: 0;
-    padding: 8px 18px;
-    font-size: 14px;
-}
-
-/* Centralização e alinhamento da coluna de ação */
-.coluna-acao,
-.celula-acao {
-  text-align: center;
-}
-
-/* Botao simples de inativar */
-.btn-inativar {
-  background: transparent;
-  border: 1px solid #ef4444;
-  color: #ef4444;
-  padding: 4px 10px;
-  border-radius: 4px;
-  font-size: 13px;
+.btn {
+  padding: 0.55rem 1.2rem;
+  border-radius: 6px;
+  border: none;
+  font-weight: 600;
+  font-size: 0.9rem;
   cursor: pointer;
-  transition: all 0.2s;
-  margin: 0px;
+  transition: background-color 0.3s, opacity 0.2s, transform 0.2s;
 }
 
-.btn-inativar:hover {
-  background-color: #ef4444;
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Botão Buscar */
+
+.btn-primary {
+  background-color: #8BCF8B;
   color: white;
 }
 
-/* Destaque visual da linha selecionada */
-.linha-selecionada {
-  background-color: #e2f5e2 !important;
+.btn-primary:hover {
+  background-color: #72c172;
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+/* Botão secundário */
+
+.btn-secondary {
+  background-color: #f1f5f9;
+  color: #475569;
+  border: 1px solid #cbd5e1;
+}
+
+.btn-secondary:hover {
+  background-color: #e2f5e2;
+  border-color: #8BCF8B;
+}
+
+/* Tabela */
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+.tabela-custom {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.tabela-custom th {
+  background-color: #8BCF8B;
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #72c172;
+}
+
+.tabela-custom td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.tabela-custom tbody tr:hover {
+  background-color: #f5fff5;
+}
+
+/* Destaques */
+
+.destaque {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+/* Badges */
+
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.badge-criacao {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.badge-atualizacao {
+  background: #fef08a;
+  color: #854d0e;
+}
+
+.badge-exclusao {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.cargo-badge {
+  background: #f1f5f9;
+  color: #334155;
+  border: 1px solid #e2e8f0;
+}
+
+/* Feedback */
+
+.feedback-box {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #64748b;
+}
+
+/* Loading */
+
+.spinner {
+  width: 28px;
+  height: 28px;
+  border: 3px solid #e2e8e2;
+  border-top-color: #8BCF8B;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto 0.75rem;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
